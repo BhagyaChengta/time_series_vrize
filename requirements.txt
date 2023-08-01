@@ -1,0 +1,11 @@
+fastapi==0.68.0
+uvicorn==0.12.2
+sagemaker
+numpy 
+pandas 
+statsmodels 
+matplotlib
+mysql
+matplotlib
+mysql-connector-python
+snowflake-connector-python

@@ -1,0 +1,14 @@
+{
+  "session_id": "e32003ff3d38460e92d44e481757b4f6",
+  "dataset_source_type": "snowflake",
+  "connection_params": {
+    "username": "BATCH_PROD",
+    "password": "Welcome12#",
+    "port": 0,
+    "account": "tscafe.us-east-1",
+    "warehouse": "SAGEMAKER_MEDIUM",
+    "database": "DEV01",
+    "db_schema": "SSHARMA",
+    "storage_integration": "S3_SAGEMAKER_INTEGRATION_VRIZE"
+  }
+}

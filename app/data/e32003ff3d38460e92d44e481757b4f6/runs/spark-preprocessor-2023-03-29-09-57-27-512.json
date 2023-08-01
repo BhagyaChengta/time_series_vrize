@@ -1,0 +1,71 @@
+{
+  "ProcessingInputs": [
+    {
+      "InputName": "code",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "s3://shubham-tsc-dev/data_ingestion_scripts/main.py",
+        "LocalPath": "/opt/ml/processing/input/code",
+        "S3DataType": "S3Prefix",
+        "S3InputMode": "File",
+        "S3DataDistributionType": "FullyReplicated",
+        "S3CompressionType": "None"
+      }
+    }
+  ],
+  "ProcessingJobName": "spark-preprocessor-2023-03-29-09-57-27-512",
+  "ProcessingResources": {
+    "ClusterConfig": {
+      "InstanceCount": 1,
+      "InstanceType": "ml.m5.12xlarge",
+      "VolumeSizeInGB": 30
+    }
+  },
+  "StoppingCondition": { "MaxRuntimeInSeconds": 432000 },
+  "AppSpecification": {
+    "ImageUri": "173754725891.dkr.ecr.us-east-1.amazonaws.com/sagemaker-spark-processing:3.1-cpu",
+    "ContainerEntrypoint": [
+      "smspark-submit",
+      "/opt/ml/processing/input/code/main.py"
+    ],
+    "ContainerArguments": [
+      "--datasetSourceType",
+      "snowflake",
+      "--warehouse",
+      "SAGEMAKER_MEDIUM",
+      "--storageIntegration",
+      "S3_SAGEMAKER_INTEGRATION_VRIZE",
+      "--database",
+      "DEV01",
+      "--schema",
+      "SSHARMA",
+      "--s3OutputLocation",
+      "s3://shubham-tsc-dev/",
+      "--queryString",
+      "SELECT CITY,COUNTRY FROM SSHARMA.RAW_PARQUET_DATA",
+      "--accountid",
+      "tscafe.us-east-1",
+      "--username",
+      "BATCH_PROD",
+      "--password",
+      "Welcome12#"
+    ]
+  },
+  "Environment": {},
+  "RoleArn": "arn:aws:iam::527835892175:role/service-role/AmazonSageMaker-ExecutionRole-20220908T164071",
+  "ProcessingJobArn": "arn:aws:sagemaker:us-east-1:527835892175:processing-job/spark-preprocessor-2023-03-29-09-57-27-512",
+  "ProcessingJobStatus": "InProgress",
+  "LastModifiedTime": "2023-03-29T15:27:28.345000+05:30",
+  "CreationTime": "2023-03-29T15:27:28.345000+05:30",
+  "ResponseMetadata": {
+    "RequestId": "b477b054-3e3c-47f8-9d60-be1acfefca76",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "b477b054-3e3c-47f8-9d60-be1acfefca76",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "1447",
+      "date": "Wed, 29 Mar 2023 09:57:28 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}
